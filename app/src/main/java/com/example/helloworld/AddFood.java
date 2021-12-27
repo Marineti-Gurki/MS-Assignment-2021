@@ -47,12 +47,10 @@ public class AddFood extends AppCompatActivity {
 
                 Intent intent = new Intent(AddFood.this, AllFood.class);
                 startActivity(intent);
+                addFood();
             }
         });
-        addFood();
-
     }
-
     void addFood() {
         FoodDBHelper foodDBHelper = new FoodDBHelper(this);
         Cursor cursor = foodDBHelper.funcAddThis();

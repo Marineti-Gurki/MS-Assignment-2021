@@ -44,10 +44,10 @@ public class DeleteFood extends AppCompatActivity {
                 InputString = InputListName.getText().toString();
                 FoodDBHelper.deleteThis(InputString);
 
-                System.out.println("Deletion successful");
+                deleteData();
             }
         });
-        deleteData();
+
 
     }
     // Deletes data from database
@@ -67,6 +67,7 @@ public class DeleteFood extends AppCompatActivity {
                 item_quantity.remove(cursor.getString(2));
             }
         }
+        System.out.println("Deletion successful");
     }
 
 

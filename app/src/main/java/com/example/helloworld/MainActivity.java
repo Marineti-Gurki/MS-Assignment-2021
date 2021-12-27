@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     Button button;
     Button button2;
     Button button3;
+    Button button4;
     public int UserLists = 0;
 
     @Override
@@ -19,6 +20,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        button4 = (Button) findViewById(R.id.button4);
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, AddFood.class);
+                startActivity(intent);
+            }
+        });
         button = (Button) findViewById(R.id.button1);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,14 +49,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, DeleteFood.class);
-                startActivity(intent);
-            }
-        });
-        button = (Button) findViewById(R.id.button4);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AddFood.class);
                 startActivity(intent);
             }
         });

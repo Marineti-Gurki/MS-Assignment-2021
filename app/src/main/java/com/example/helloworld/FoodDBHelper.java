@@ -122,15 +122,13 @@ public class FoodDBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public static void addThis(String itemID, String itemName, String itemQuantity){
-        ADD_ITEM_ID = itemID;
+    public static void addThis(String itemName){
         ADD_ITEM_NAME = itemName;
-        ADD_ITEM_QUANTITY = itemQuantity;
     }
 
     Cursor funcAddThis(){
         // adds this sqlite query into a string variable which adds to rows with user input
-        String query = "INSERT INTO " + TABLE_FOOD+"(code, product_name, quantity) VALUES"+"("+ADD_ITEM_ID+","+ADD_ITEM_NAME+","+ADD_ITEM_QUANTITY+")";
+        String query = "INSERT INTO " + TABLE_FOOD+"(code, product_name, quantity) VALUES"+"("+ADD_ITEM_ID+ "," + "'" + ADD_ITEM_NAME + "'" +","+ADD_ITEM_QUANTITY+")";
         // grabs this database
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = null;

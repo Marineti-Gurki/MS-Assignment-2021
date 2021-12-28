@@ -40,14 +40,19 @@ public class AddFood extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 addfoodinput = findViewById(R.id.addfoodinput);
                 InputString = addfoodinput.getText().toString();
-                FoodDBHelper.searchInput(InputString);
+                if(!InputString.equals("")){
+                    FoodDBHelper.searchInput(InputString);
+                    FoodDBHelper.addThis(InputString);
+                    Intent intent = new Intent(AddFood.this, AllFood.class);
+                    startActivity(intent);
+                    addFood();
+                }else{
+                    Toast.makeText(AddFood.this, "Input cannot be null", Toast.LENGTH_SHORT).show();
+                    System.out.println("Input cannot be null");
+                }
 
-                Intent intent = new Intent(AddFood.this, AllFood.class);
-                startActivity(intent);
-                addFood();
             }
         });
     }
